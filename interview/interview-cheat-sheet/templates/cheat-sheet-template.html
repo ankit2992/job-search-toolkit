@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>{{Company}} — {{Round Name}} Prep · {{Candidate Name}}</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#f5f4f0;--white:#ffffff;--surface:#fafaf8;--surface2:#f0efeb;
+  --border:#e2e0da;--border2:#ccc9c0;--text:#1a1a1a;--text2:#5a5a5a;--text3:#999;
+  --navy:#1a2a4a;--navy-bg:#eef1f7;--navy-border:#c5cedf;
+  --gold:#b8860b;--gold-bg:#fdf8ee;--gold-border:#e8d5a0;
+  --blue:#1d4ed8;--blue-bg:#eff6ff;--blue-border:#bfdbfe;
+  --red:#b91c1c;--red-bg:#fef2f2;--red-border:#fecaca;
+  --green:#166534;--green-bg:#f0fdf4;--green-border:#bbf7d0;
+  --purple:#6d28d9;--purple-bg:#f5f3ff;--purple-border:#ddd6fe;
+  --radius:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;display:flex;font-size:14px;}
+
+/* SIDEBAR */
+.sidebar{width:230px;flex-shrink:0;background:var(--white);border-right:1px solid var(--border);display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:10;overflow-y:auto;}
+.sidebar-header{padding:20px 16px 16px;border-bottom:1px solid var(--border);}
+.sidebar-company{font-family:'Instrument Serif',serif;font-size:18px;color:var(--text);margin-bottom:2px;}
+.sidebar-sub{font-size:10px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;}
+.nav-group{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);padding:14px 16px 5px;}
+.nav-item{display:block;padding:8px 16px;font-size:12.5px;color:var(--text2);text-decoration:none;border-left:2px solid transparent;transition:all .15s;line-height:1.4;cursor:pointer;}
+.nav-item:hover{color:var(--text);background:var(--surface2);}
+.nav-item.navy-nav:hover,.nav-item.navy-nav.active{color:var(--navy);border-left-color:var(--navy);background:var(--navy-bg);}
+.nav-item.gold-nav:hover,.nav-item.gold-nav.active{color:var(--gold);border-left-color:var(--gold);background:var(--gold-bg);}
+.nav-item.blue-nav:hover,.nav-item.blue-nav.active{color:var(--blue);border-left-color:var(--blue);background:var(--blue-bg);}
+.nav-item.green-nav:hover,.nav-item.green-nav.active{color:var(--green);border-left-color:var(--green);background:var(--green-bg);}
+.nav-item.red-nav:hover,.nav-item.red-nav.active{color:var(--red);border-left-color:var(--red);background:var(--red-bg);}
+.nav-item.purple-nav:hover,.nav-item.purple-nav.active{color:var(--purple);border-left-color:var(--purple);background:var(--purple-bg);}
+.nav-sub{padding-left:28px;font-size:11px;}
+
+/* MAIN LAYOUT */
+.main{margin-left:230px;flex:1;padding:36px 44px 80px;display:flex;flex-direction:column;align-items:center;}
+.main-wrap{width:100%;max-width:860px;}
+.page-header{border-bottom:1px solid var(--border);padding-bottom:20px;margin-bottom:28px;}
+.page-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.page-title{font-family:'Instrument Serif',serif;font-size:32px;color:var(--text);line-height:1.15;margin-bottom:4px;}
+.page-sub{font-size:13px;color:var(--text2);font-weight:300;}
+
+/* CONTEXT STRIP */
+.context-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px;}
+.ctx-card{background:var(--white);border:1px solid var(--border);border-radius:8px;padding:14px 16px;}
+.ctx-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-bottom:5px;}
+.ctx-value{font-size:13px;font-weight:600;color:var(--text);line-height:1.4;}
+.ctx-note{font-size:11px;color:var(--text2);margin-top:3px;}
+
+/* WARN BANNER */
+.warn-banner{background:var(--navy-bg);border:1px solid var(--navy-border);border-radius:8px;padding:14px 18px;margin-bottom:28px;font-size:13px;color:#1a2a4a;line-height:1.6;}
+.warn-banner strong{font-weight:600;}
+
+/* METRICS */
+.metrics-row{display:flex;background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:16px;flex-wrap:wrap;}
+.met{flex:1;text-align:center;padding:14px 6px;border-right:1px solid var(--border);min-width:90px;}
+.met:last-child{border-right:none;}
+.met-num{font-family:'Instrument Serif',serif;font-size:17px;color:var(--text);display:block;line-height:1;margin-bottom:4px;}
+.met-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--text3);}
+
+/* SECTIONS */
+.section{margin-bottom:48px;scroll-margin-top:20px;}
+.section-header{display:flex;align-items:center;gap:10px;padding-bottom:12px;margin-bottom:16px;border-bottom:1px solid var(--border);flex-wrap:wrap;}
+.s-tag{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;padding:3px 9px;border-radius:4px;font-weight:500;}
+.t-navy{background:var(--navy-bg);color:var(--navy);border:1px solid var(--navy-border);}
+.t-blue{background:var(--blue-bg);color:var(--blue);border:1px solid var(--blue-border);}
+.t-red{background:var(--red-bg);color:var(--red);border:1px solid var(--red-border);}
+.t-green{background:var(--green-bg);color:var(--green);border:1px solid var(--green-border);}
+.t-purple{background:var(--purple-bg);color:var(--purple);border:1px solid var(--purple-border);}
+.t-gold{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-border);}
+.s-title{font-size:16px;font-weight:600;color:var(--text);}
+.s-use{margin-left:auto;font-size:11px;color:var(--text3);font-style:italic;font-family:'DM Mono',monospace;text-align:right;max-width:280px;line-height:1.4;}
+
+/* ANCHOR BAR */
+.anchor-bar{display:flex;align-items:center;gap:6px;background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:9px 14px;margin-bottom:16px;flex-wrap:wrap;}
+.anchor-lbl{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);margin-right:4px;}
+.anc{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:var(--text);background:var(--white);border:1px solid var(--border2);border-radius:3px;padding:3px 9px;}
+.anc-arr{color:var(--text3);font-size:11px;}
+
+/* STORY CARD / BEATS */
+.story-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.beat{border-bottom:1px solid var(--border);}
+.beat:last-child{border-bottom:none;}
+.beat-top{display:flex;align-items:center;gap:10px;padding:10px 18px;background:var(--surface);border-bottom:1px solid var(--border);}
+.beat-num{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text3);min-width:20px;}
+.beat-name{font-size:12.5px;font-weight:600;color:var(--text);}
+.beat-time{margin-left:auto;font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);background:var(--bg);border:1px solid var(--border);border-radius:3px;padding:2px 7px;}
+.beat-body{padding:16px 18px;}
+
+/* SCRIPT TEXT + PACING CUES */
+.script{font-size:14.5px;line-height:1.9;color:#2d2d2d;font-weight:300;}
+.script strong{color:#000;font-weight:600;}
+.pause{color:var(--gold);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;}
+.slow{color:var(--blue);font-family:'DM Mono',monospace;font-size:11px;font-weight:500;}
+
+/* COACHING CUE CALLOUTS */
+.cue{margin-top:12px;padding:10px 14px;border-radius:0 5px 5px 0;font-size:12px;line-height:1.55;}
+.cue-d{background:var(--gold-bg);border-left:3px solid var(--gold);color:#7a5c0a;}
+.cue-d strong{color:var(--gold);}
+.cue-w{background:var(--red-bg);border-left:3px solid var(--red);color:#991515;}
+.cue-w strong{color:var(--red);}
+.cue-g{background:var(--green-bg);border-left:3px solid var(--green);color:#14532d;}
+.cue-g strong{color:var(--green);}
+.cue-b{background:var(--blue-bg);border-left:3px solid var(--blue);color:#1e3a8a;}
+.cue-b strong{color:var(--blue);}
+
+/* SIMPLE Q&A CARD */
+.qa-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;margin-bottom:12px;}
+.qa-a{padding:14px 18px;font-size:13.5px;line-height:1.8;color:#2d2d2d;font-weight:300;}
+.qa-a strong{font-weight:600;color:#000;}
+
+/* PROBE / FOLLOW-UP SECTION */
+.probe-section{margin-top:16px;background:var(--surface2);border:1px solid var(--border);border-radius:8px;overflow:hidden;}
+.probe-header{padding:10px 16px;background:var(--surface);border-bottom:1px solid var(--border);}
+.probe-header-text{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--text3);}
+.probe-body{padding:14px 16px;display:flex;flex-direction:column;gap:10px;}
+.probe-a{font-size:12.5px;line-height:1.7;color:#2d2d2d;font-weight:300;}
+
+/* QUESTIONS TO ASK */
+.ask-list{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.ask-item{display:flex;gap:14px;padding:14px 18px;border-bottom:1px solid var(--border);align-items:flex-start;}
+.ask-item:last-child{border-bottom:none;}
+.ask-num{font-family:'DM Mono',monospace;font-size:10px;color:var(--text3);min-width:20px;margin-top:2px;}
+.ask-text{font-size:13.5px;line-height:1.7;color:#2d2d2d;font-weight:300;}
+.ask-text strong{color:#000;font-weight:600;}
+.ask-note{font-size:11px;color:var(--text3);margin-top:3px;font-style:italic;}
+
+/* CHECKLIST */
+.checklist{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;}
+.check-item{display:flex;gap:12px;padding:12px 18px;border-bottom:1px solid var(--border);align-items:flex-start;}
+.check-item:last-child{border-bottom:none;}
+.check-box{width:16px;height:16px;border:1.5px solid var(--border2);border-radius:3px;flex-shrink:0;margin-top:1px;}
+.check-text{font-size:13px;line-height:1.6;color:var(--text2);}
+.check-text strong{color:var(--text);font-weight:600;}
+
+@media (max-width:768px){
+  .sidebar{position:relative;width:100%;height:auto;border-right:none;border-bottom:1px solid var(--border);}
+  .main{margin-left:0;padding:24px 18px 60px;}
+  .context-strip{grid-template-columns:repeat(2,1fr);}
+}
+</style>
+</head>
+<body>
+
+<!-- SIDEBAR — build nav-items to match the sections you actually include -->
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <div class="sidebar-company">{{Company}}</div>
+    <div class="sidebar-sub">{{Round Name}} · {{Candidate Name}}</div>
+  </div>
+
+  <div class="nav-group">Context</div>
+  <a class="nav-item navy-nav" href="#context">Role &amp; Context</a>
+  <a class="nav-item gold-nav" href="#numbers">Numbers to Know Cold</a>
+  <a class="nav-item navy-nav" href="#checklist">Pre-Call Checklist</a>
+
+  <div class="nav-group">Certain Questions</div>
+  <a class="nav-item navy-nav" href="#pitch">Tell Me About Yourself</a>
+  <a class="nav-item red-nav" href="#layoff">Why Did You Leave?</a>
+  <a class="nav-item green-nav" href="#comp">Salary Expectations</a>
+
+  <div class="nav-group">Likely Questions</div>
+  <a class="nav-item blue-nav" href="#example-question">{{Likely question label}}</a>
+
+  <div class="nav-group">Possible Questions</div>
+  <a class="nav-item purple-nav" href="#gap-question">{{Gap-area question label}}</a>
+
+  <div class="nav-group">Close</div>
+  <a class="nav-item green-nav" href="#ask">Questions to Ask</a>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+<div class="main-wrap">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="page-eyebrow">{{Round Name}} · {{Month Year}}</div>
+    <div class="page-title">{{Company}}<br>{{Role Title}}</div>
+    <div class="page-sub">{{Duration}} · Tone: {{tone}} · Goal: {{round goal}}</div>
+  </div>
+
+  <!-- CONTEXT STRIP -->
+  <div id="context" class="context-strip">
+    <div class="ctx-card">
+      <div class="ctx-label">{{Context Label 1}}</div>
+      <div class="ctx-value">{{Context Value 1}}</div>
+      <div class="ctx-note">{{One-line note}}</div>
+    </div>
+    <div class="ctx-card">
+      <div class="ctx-label">{{Context Label 2}}</div>
+      <div class="ctx-value">{{Context Value 2}}</div>
+      <div class="ctx-note">{{One-line note}}</div>
+    </div>
+    <div class="ctx-card">
+      <div class="ctx-label">{{Context Label 3}}</div>
+      <div class="ctx-value">{{Context Value 3}}</div>
+      <div class="ctx-note">{{One-line note}}</div>
+    </div>
+    <div class="ctx-card">
+      <div class="ctx-label">Their Goal Today</div>
+      <div class="ctx-value">{{e.g. Pass / No Pass}}</div>
+      <div class="ctx-note">{{What this round is actually deciding}}</div>
+    </div>
+  </div>
+
+  <div class="warn-banner">
+    <strong>What they're deciding in this round:</strong> {{One or two sentences
+    framing the real decision being made, and any "don't volunteer X but don't
+    avoid it if asked directly" guidance.}}
+  </div>
+
+  <!-- NUMBERS TO KNOW -->
+  <div id="numbers" class="section">
+    <div class="section-header">
+      <span class="s-tag t-gold">Numbers</span>
+      <span class="s-title">Know These Cold</span>
+    </div>
+    <div class="metrics-row">
+      <div class="met"><span class="met-num">{{N}}</span><span class="met-lbl">{{label}}</span></div>
+      <div class="met"><span class="met-num">{{N}}</span><span class="met-lbl">{{label}}</span></div>
+      <div class="met"><span class="met-num">{{N}}</span><span class="met-lbl">{{label}}</span></div>
+      <div class="met"><span class="met-num">{{N}}</span><span class="met-lbl">{{label}}</span></div>
+    </div>
+  </div>
+
+  <!-- PRE-CALL CHECKLIST -->
+  <div id="checklist" class="section">
+    <div class="section-header">
+      <span class="s-tag t-navy">Pre-Call</span>
+      <span class="s-title">Before You Dial In</span>
+    </div>
+    <div class="checklist">
+      <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>{{Setup reminder}}</strong> — {{why it matters}}</div></div>
+      <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Know your pitch cold</strong> — first impression sets the tone for everything after</div></div>
+      <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Know your comp anchor</strong> — {{range}}, don't move first</div></div>
+      <div class="check-item"><div class="check-box"></div><div class="check-text"><strong>Have 2 questions ready to ask</strong> — see Questions to Ask at the bottom</div></div>
+    </div>
+  </div>
+
+  <!-- TELL ME ABOUT YOURSELF -->
+  <div id="pitch" class="section">
+    <div class="section-header">
+      <span class="s-tag t-navy">Certain</span>
+      <span class="s-title">Tell Me About Yourself</span>
+      <span class="s-use">~{{seconds}} sec · First impression · Don't rush it</span>
+    </div>
+    <div class="anchor-bar">
+      <span class="anchor-lbl">Anchors</span>
+      <span class="anc">{{Anchor1}}</span><span class="anc-arr">→</span>
+      <span class="anc">{{Anchor2}}</span><span class="anc-arr">→</span>
+      <span class="anc">{{Anchor3}}</span>
+    </div>
+    <div class="story-card">
+      <div class="beat">
+        <div class="beat-top"><span class="beat-num">01</span><span class="beat-name">{{Beat name}}</span><span class="beat-time">~{{sec}} sec</span></div>
+        <div class="beat-body">
+          <p class="script">"{{Full first-person script for this beat.}} <span class="pause">[PAUSE]</span> {{Continue...}} <span class="slow">[SLOW]</span> {{Payoff line.}}"</p>
+          <div class="cue cue-d"><strong>{{Delivery note}}</strong> {{What to do/avoid here.}}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY DID YOU LEAVE -->
+  <div id="layoff" class="section">
+    <div class="section-header">
+      <span class="s-tag t-red">Certain</span>
+      <span class="s-title">Why Did You Leave Your Last Role?</span>
+      <span class="s-use">Keep it brief. Don't elaborate unless pushed.</span>
+    </div>
+    <div class="qa-card">
+      <div class="qa-a">"{{Honest, brief, non-defensive script.}}"</div>
+    </div>
+  </div>
+
+  <!-- SALARY -->
+  <div id="comp" class="section">
+    <div class="section-header">
+      <span class="s-tag t-green">Certain</span>
+      <span class="s-title">Salary Expectations</span>
+    </div>
+    <div class="qa-card">
+      <div class="qa-a">"{{Comp range script — anchor, don't move first.}}"</div>
+    </div>
+  </div>
+
+  <!-- EXAMPLE: LIKELY QUESTION TIED TO A STORY -->
+  <div id="example-question" class="section">
+    <div class="section-header">
+      <span class="s-tag t-blue">Likely</span>
+      <span class="s-title">{{Question text}}</span>
+      <span class="s-use">{{Why this is likely, e.g. "JD emphasizes X"}}</span>
+    </div>
+    <div class="anchor-bar">
+      <span class="anchor-lbl">Anchors</span>
+      <span class="anc">{{Anchor1}}</span><span class="anc-arr">→</span>
+      <span class="anc">{{Anchor2}}</span><span class="anc-arr">→</span>
+      <span class="anc">{{Anchor3}}</span><span class="anc-arr">→</span>
+      <span class="anc">{{Anchor4}}</span>
+    </div>
+    <div class="story-card">
+      <div class="beat">
+        <div class="beat-top"><span class="beat-num">01</span><span class="beat-name">{{Beat name}}</span><span class="beat-time">~{{sec}} sec</span></div>
+        <div class="beat-body">
+          <p class="script">"{{Full story script with pacing cues.}} <span class="pause">[PAUSE]</span> {{...}} <span class="slow">[SLOW]</span> {{Payoff.}}"</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROBE / FOLLOW-UP -->
+    <div class="probe-section" style="margin-top:10px;">
+      <div class="probe-header"><span class="probe-header-text">If they ask for a second story — {{Story name}}</span></div>
+      <div class="probe-body">
+        <div class="anchor-bar" style="margin-bottom:10px;">
+          <span class="anchor-lbl">Anchors</span>
+          <span class="anc">{{Anchor1}}</span><span class="anc-arr">→</span>
+          <span class="anc">{{Anchor2}}</span><span class="anc-arr">→</span>
+          <span class="anc">{{Anchor3}}</span>
+        </div>
+        <div class="probe-a">"{{Second story script.}}"</div>
+        <div class="cue cue-w" style="margin-top:8px;border-radius:5px;"><strong>Note:</strong> {{e.g. "This story doubles as your failure/miss answer. Don't use it for both in the same conversation."}}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAMPLE: POSSIBLE QUESTION TOUCHING A KNOWN GAP -->
+  <div id="gap-question" class="section">
+    <div class="section-header">
+      <span class="s-tag t-purple">Possible</span>
+      <span class="s-title">{{Question touching a known gap}}</span>
+      <span class="s-use">Don't fake it. Honest framing wins more trust than overclaiming.</span>
+    </div>
+    <div class="qa-card">
+      <div class="qa-a">"{{Honest statement of what experience the candidate does and doesn't have.}} <span class="pause">[PAUSE]</span> {{Redirect to the adjacent strength that is real.}} <span class="slow">[SLOW]</span> {{Why that strength is what the role actually needs.}}"</div>
+      <div class="cue cue-g" style="margin:0 14px 14px;"><strong>If pushed for more depth:</strong> "{{Calibrated second-layer answer — 'intermediate', 'working knowledge, not expert', etc.}}"</div>
+    </div>
+  </div>
+
+  <!-- QUESTIONS TO ASK -->
+  <div id="ask" class="section">
+    <div class="section-header">
+      <span class="s-tag t-green">Close</span>
+      <span class="s-title">Questions to Ask Them</span>
+      <span class="s-use">Pick 2. Always close with next steps.</span>
+    </div>
+    <div class="ask-list">
+      <div class="ask-item">
+        <div class="ask-num">01</div>
+        <div class="ask-text"><strong>Priority ask:</strong> "{{Question that surfaces important ambiguity early.}}"
+          <div class="ask-note">{{Why this matters.}}</div>
+        </div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">02</div>
+        <div class="ask-text">"{{Second question.}}"
+          <div class="ask-note">{{Why this matters.}}</div>
+        </div>
+      </div>
+      <div class="ask-item">
+        <div class="ask-num">03</div>
+        <div class="ask-text"><strong>Always close with this:</strong> "What are the next steps after this conversation, and what's the timeline looking like?"
+          <div class="ask-note">Never leave without knowing the path forward.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<!-- SCROLL-SPY SIDEBAR -->
+<script>
+const navItems = document.querySelectorAll('.nav-item');
+const sections = document.querySelectorAll('[id]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      const id = entry.target.id;
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if(item.getAttribute('href') === '#'+id) item.classList.add('active');
+      });
+    }
+  });
+}, {threshold: 0.3});
+sections.forEach(el => observer.observe(el));
+navItems.forEach(item => {
+  item.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(item.getAttribute('href'));
+    if(target) target.scrollIntoView({behavior:'smooth'});
+  });
+});
+</script>
+</body>
+</html>
