@@ -13,6 +13,20 @@ recurring patterns across companies, and offers need to be compared against
 the same kind of risk factors every time. These tools encode the decisions
 I'd otherwise make manually and inconsistently, every time.
 
+## Used in a real search
+
+These tools were built and used during an active 4-month job search
+(250+ applications across fintech, insurtech, and big tech):
+
+- **Job Search Digest** ran daily during the sourcing phase
+- **Interview Cheat Sheet** was used to prep live interview loops,
+  including the one that led to the signed offer
+- **Comp Comparator** was run on the final offer — it flagged a verbal
+  bonus commitment as unconfirmed upside, which changed how I evaluated
+  the written terms
+
+The search ended with a signed offer in June 2026.
+
 ## Tools
 
 ### [Application — Job Search Digest](./application/job-search-digest)
@@ -53,6 +67,17 @@ design tradeoffs (filtering logic, risk flags, content structure, honesty
 calibration rules). Claude Code implemented each skill against those
 specifications. Each tool's README documents what I specified versus what
 was generated, and its current status (in active use vs. newly built).
+
+## What's next
+
+Ideas under consideration, in priority order:
+
+- **Follow-up tracker** — application status and outreach cadence
+  management; the biggest remaining manual step in the workflow
+- **Interviewer research module** — pre-round briefs on interviewer
+  backgrounds and likely question areas, feeding into the cheat sheet
+- **Post-offer checklist** — first-90-days planning, benefits election
+  deadlines, and title/level documentation
 
 ## Structure
 
