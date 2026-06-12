@@ -38,6 +38,8 @@ against target roles, and emails a digest. Optionally runs on a schedule.
 graceful fallback when a data source is unavailable, adaptive search window
 when results are sparse, privacy-scoped to a single destination email.
 
+<img width="1123" height="610" alt="image" src="https://github.com/user-attachments/assets/c8030205-77f9-4735-8b41-14e38ea72243" />
+
 ### [Interview — Interview Cheat Sheet Generator](./interview/interview-cheat-sheet)
 
 Generates a single-file HTML "cheat sheet" for a specific interview round —
@@ -48,6 +50,8 @@ and honestly-calibrated answers for known gaps.
 read, sparing use of pacing cues, reuse of a fixed story bank across rounds,
 and an explicit honesty-calibration pattern for gap-area questions that
 avoids overclaiming.
+
+<img width="1897" height="898" alt="image" src="https://github.com/user-attachments/assets/9c9a184e-e079-46de-baaf-ca8fcb66e43a" />
 
 ### [Negotiation — Comp Comparator](./negotiation/comp-comparator)
 
