@@ -53,6 +53,8 @@ avoids overclaiming.
 
 <img width="1897" height="898" alt="image" src="https://github.com/user-attachments/assets/9c9a184e-e079-46de-baaf-ca8fcb66e43a" />
 
+**[View live example →](https://ankit2992.github.io/job-search-toolkit/interview/interview-cheat-sheet/examples/example-prep-sheet.html)**
+
 ### [Negotiation — Comp Comparator](./negotiation/comp-comparator)
 
 Compares an offer (or multiple offers) against a target comp, flags risky
