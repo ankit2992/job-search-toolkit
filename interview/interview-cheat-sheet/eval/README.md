@@ -24,7 +24,7 @@ better and worse ones.
 
 ```bash
 # code checks only (no API key needed)
-python3 run.py --no-judge examples/../examples/example-prep-sheet.html
+python3 run.py --no-judge ../examples/example-prep-sheet.html
 
 # full run including the three LLM-judged dimensions
 export ANTHROPIC_API_KEY=sk-...
@@ -50,3 +50,17 @@ navigation integrity. These are binary correctness issues, so any failure there
 fails the whole run regardless of the headline number.
 
 A run passes at **>= 85 with no hard failures.**
+
+## What the fixture shows
+
+`example-prep-sheet.html` is a real generated cheat sheet — and it intentionally
+**fails** the eval (74.5, hard failure on em dashes). That's expected and the
+point: the eval caught spec violations in the reference output itself. Specifically:
+
+- **Em dashes** (hard gate) — 9 found in titles and pacing notes; the SKILL.md
+  prohibits them in all written content
+- **Pacing cue restraint** — two sections exceed the 2-cue budget
+
+Running the eval on your own generated sheet (not the example) is the real use.
+If it passes on a generated sheet but flags the example, the harness is working
+correctly.
