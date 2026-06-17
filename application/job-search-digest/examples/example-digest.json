@@ -1,0 +1,101 @@
+{
+  "_comment": "A digest run record: the criteria the user gave plus the jobs the skill returned. This is what the eval consumes. This fixture intentionally contains a few rule violations (a Director-level title, a duplicate, an EMEA-only remote role, an off-target role, and a malformed URL) so the eval has known issues to catch.",
+  "run_date": "2026-06-17",
+  "criteria": {
+    "role_families": ["Technical Program Manager", "Product Manager"],
+    "locations": ["Boston", "Remote"],
+    "seniority": ["senior"],
+    "industry": "AI/ML",
+    "email": "candidate@example.com"
+  },
+  "jobs": [
+    {
+      "title": "Senior Technical Program Manager, AI Platform",
+      "company": "Northwind Robotics",
+      "location": "Boston, MA",
+      "posted_date": "3 hours ago",
+      "url": "https://job-boards.greenhouse.io/northwind/jobs/5512331",
+      "source": "Google/ATS",
+      "role_family": "Technical Program Manager",
+      "industry_tag": "AI/ML",
+      "snippet": "Lead cross-functional delivery for the ML platform team building model training infra."
+    },
+    {
+      "title": "Senior Product Manager, ML Experiences",
+      "company": "Helix Data",
+      "location": "Remote (US)",
+      "posted_date": "9 hours ago",
+      "url": "https://jobs.lever.co/helixdata/9f2a-pm-ml",
+      "source": "LinkedIn",
+      "role_family": "Product Manager",
+      "industry_tag": "AI/ML",
+      "snippet": "Own the roadmap for AI-assisted analytics features end to end."
+    },
+    {
+      "title": "Technical Program Manager II",
+      "company": "Beacon Health AI",
+      "location": "Boston, MA",
+      "posted_date": "1 day ago",
+      "url": "https://boards.greenhouse.io/beaconhealthai/jobs/44120",
+      "source": "Google/ATS",
+      "role_family": "Technical Program Manager",
+      "industry_tag": "AI/ML",
+      "snippet": "Drive delivery of clinical ML products in a regulated environment."
+    },
+    {
+      "title": "Senior Product Manager, ML Experiences",
+      "company": "Helix Data",
+      "location": "Remote",
+      "posted_date": "11 hours ago",
+      "url": "https://linkedin.com/jobs/view/helix-data-spm-9912",
+      "source": "LinkedIn",
+      "role_family": "Product Manager",
+      "industry_tag": "AI/ML",
+      "snippet": "Own the roadmap for AI-assisted analytics features end to end."
+    },
+    {
+      "title": "Director of Product Management",
+      "company": "Vertex Payments",
+      "location": "Boston, MA",
+      "posted_date": "2 days ago",
+      "url": "https://jobs.ashbyhq.com/vertex/dir-pm",
+      "source": "Google/ATS",
+      "role_family": "Product Manager",
+      "industry_tag": "Other",
+      "snippet": "Lead the product org and manage a team of PMs."
+    },
+    {
+      "title": "Product Marketing Manager",
+      "company": "Lumen Cloud",
+      "location": "Remote (US)",
+      "posted_date": "6 hours ago",
+      "url": "https://jobs.lever.co/lumencloud/pmm-2026",
+      "source": "LinkedIn",
+      "role_family": "Product Manager",
+      "industry_tag": "Other",
+      "snippet": "Drive go-to-market messaging and competitive positioning."
+    },
+    {
+      "title": "Senior Technical Program Manager",
+      "company": "Atlas Compute",
+      "location": "Remote (EMEA)",
+      "posted_date": "5 hours ago",
+      "url": "https://boards.greenhouse.io/atlascompute/jobs/7781",
+      "source": "Google/ATS",
+      "role_family": "Technical Program Manager",
+      "industry_tag": "AI/ML",
+      "snippet": "Coordinate infra delivery across European data center buildout."
+    },
+    {
+      "title": "Product Manager, Risk Models",
+      "company": "Keystone Insurtech",
+      "location": "Boston, MA",
+      "posted_date": "14 hours ago",
+      "url": "boards.greenhouse.io/keystone/jobs/3301",
+      "source": "Google/ATS",
+      "role_family": "Product Manager",
+      "industry_tag": "AI/ML",
+      "snippet": "Own ML-driven underwriting risk products for a regulated insurer."
+    }
+  ]
+}

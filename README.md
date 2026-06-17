@@ -64,6 +64,31 @@ verbal commitments are tracked as unconfirmed upside, negotiation steps are
 sequenced by leverage, and the tool deliberately stops short of giving
 financial advice.
 
+## Evals
+
+Each tool has an `eval/` folder that makes quality measurable rather than
+subjective. The three tools fail in different ways, so each eval uses a
+different strategy:
+
+| Tool | Eval strategy | What it catches |
+|------|--------------|-----------------|
+| **Comp Comparator** | Arithmetic + rules | Bonus folded into guaranteed total, missing risk-clause flags, equity ask at a no-equity company |
+| **Job Search Digest** | Retrieval precision | Duplicates, seniority/location filter violations, malformed URLs, off-target titles |
+| **Interview Cheat Sheet** | LLM-judged quality | Tone, honesty calibration, attribution — dimensions with no single right answer |
+
+Run any eval from its folder:
+
+```bash
+# comp comparator
+python3 negotiation/comp-comparator/eval/run.py negotiation/comp-comparator/examples/example-comparison.md
+
+# job search digest
+python3 application/job-search-digest/eval/run.py application/job-search-digest/examples/example-digest.json
+```
+
+The judged dimensions (tone, honesty) in the cheat-sheet eval require
+`export ANTHROPIC_API_KEY=...` before running.
+
 ## A note on how these were built
 
 For each tool, I defined the problem, the workflow steps, and the specific
@@ -90,7 +115,14 @@ job-search-toolkit/
 ├── application/
 │   └── job-search-digest/
 │       ├── SKILL.md
-│       └── README.md
+│       ├── README.md
+│       ├── eval/
+│       │   ├── rubric.md
+│       │   ├── parse.py
+│       │   ├── run.py
+│       │   └── README.md
+│       └── examples/
+│           └── example-digest.json
 ├── interview/
 │   └── interview-cheat-sheet/
 │       ├── SKILL.md
@@ -103,8 +135,14 @@ job-search-toolkit/
     └── comp-comparator/
         ├── SKILL.md
         ├── README.md
+        ├── eval/
+        │   ├── rubric.md
+        │   ├── parse.py
+        │   ├── run.py
+        │   └── README.md
         └── examples/
-            └── example-comparison.md
+            ├── example-comparison.md
+            └── example-comparison-flawed.md
 ```
 
 All examples use fictional companies, roles, and numbers.
