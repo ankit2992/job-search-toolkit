@@ -106,6 +106,11 @@ export ANTHROPIC_API_KEY=sk-...
 python3 negotiation/comp-comparator/eval/run.py negotiation/comp-comparator/examples/example-comparison.md
 ```
 
+When judging is enabled, up to 6 KB of extracted text from the input file is
+sent to the Anthropic API. Use `--no-judge` if the file contains real personal
+data (real names, real offer figures, real employer). All example fixtures use
+fictional data.
+
 Each suite ships with fixtures that demonstrate it discriminates good from bad:
 the comp eval scores a correct analysis 100 and a deliberately-flawed one 15
 (discretionary bonus folded into the guaranteed total, risk clauses unflagged,
