@@ -25,8 +25,6 @@ These tools were built and used during an active 4-month job search
   bonus commitment as unconfirmed upside, which changed how I evaluated
   the written terms
 
-The search ended with a signed offer in June 2026.
-
 ## Tools
 
 ### [Application — Job Search Digest](./application/job-search-digest)
