@@ -64,31 +64,6 @@ verbal commitments are tracked as unconfirmed upside, negotiation steps are
 sequenced by leverage, and the tool deliberately stops short of giving
 financial advice.
 
-## Evals
-
-Each tool has an `eval/` folder that makes quality measurable rather than
-subjective. The three tools fail in different ways, so each eval uses a
-different strategy:
-
-| Tool | Eval strategy | What it catches |
-|------|--------------|-----------------|
-| **Comp Comparator** | Arithmetic + rules | Bonus folded into guaranteed total, missing risk-clause flags, equity ask at a no-equity company |
-| **Job Search Digest** | Retrieval precision | Duplicates, seniority/location filter violations, malformed URLs, off-target titles |
-| **Interview Cheat Sheet** | LLM-judged quality | Tone, honesty calibration, attribution — dimensions with no single right answer |
-
-Run any eval from its folder:
-
-```bash
-# comp comparator
-python3 negotiation/comp-comparator/eval/run.py negotiation/comp-comparator/examples/example-comparison.md
-
-# job search digest
-python3 application/job-search-digest/eval/run.py application/job-search-digest/examples/example-digest.json
-```
-
-The judged dimensions (tone, honesty) in the cheat-sheet eval require
-`export ANTHROPIC_API_KEY=...` before running.
-
 ## A note on how these were built
 
 For each tool, I defined the problem, the workflow steps, and the specific
@@ -96,6 +71,48 @@ design tradeoffs (filtering logic, risk flags, content structure, honesty
 calibration rules). Claude Code implemented each skill against those
 specifications. Each tool's README documents what I specified versus what
 was generated, and its current status (in active use vs. newly built).
+
+## Evaluation
+
+Each tool ships with an **eval suite** — an automated harness that scores a
+generated output against a rubric and produces a single pass/fail verdict. The
+principle throughout: the `SKILL.md` is the spec, and the eval is how the
+output is proven to meet it, measured instead of eyeballed.
+
+The more interesting decision was that the three tools are evaluated in three
+different ways, because they fail in different ways:
+
+| Tool | What kind of problem | How it's graded |
+|---|---|---|
+| Interview Cheat Sheet | Generation quality | LLM-judged (tone, honesty, attribution) + code format checks |
+| Job Search Digest | Retrieval & filtering | Objective code checks (precision, dedup, seniority/location, URLs) |
+| Comp Comparator | Structured reasoning & math | Arithmetic verification + risk-flag recall + a no-advice guardrail |
+
+A search tool is a *precision* problem with checkable right answers; a comp
+tool is an *arithmetic-correctness* problem; only the cheat sheet is a
+subjective *quality* problem that genuinely needs an LLM judge. Matching the
+eval method to the failure mode is the point.
+
+Each `eval/` folder is self-contained and runnable:
+
+```bash
+# code-only checks, no API key required
+python3 interview/interview-cheat-sheet/eval/run.py --no-judge interview/interview-cheat-sheet/examples/example-prep-sheet.html
+python3 negotiation/comp-comparator/eval/run.py --no-judge negotiation/comp-comparator/examples/example-comparison.md
+python3 application/job-search-digest/eval/run.py --no-judge application/job-search-digest/examples/example-digest.json
+
+# include the LLM-judged dimensions
+export ANTHROPIC_API_KEY=sk-...
+python3 negotiation/comp-comparator/eval/run.py negotiation/comp-comparator/examples/example-comparison.md
+```
+
+Each suite ships with fixtures that demonstrate it discriminates good from bad:
+the comp eval scores a correct analysis 100 and a deliberately-flawed one 15
+(discretionary bonus folded into the guaranteed total, risk clauses unflagged,
+an equity ask at a company with no equity); the digest eval catches a planted
+duplicate, an over-level title, a non-US-remote role, and an off-target
+"Product Marketing Manager." Runners exit non-zero on failure, so they drop
+straight into CI.
 
 ## What's next
 
@@ -127,6 +144,11 @@ job-search-toolkit/
 │   └── interview-cheat-sheet/
 │       ├── SKILL.md
 │       ├── README.md
+│       ├── eval/
+│       │   ├── rubric.md
+│       │   ├── parse.py
+│       │   ├── run.py
+│       │   └── README.md
 │       ├── templates/
 │       │   └── cheat-sheet-template.html
 │       └── examples/
