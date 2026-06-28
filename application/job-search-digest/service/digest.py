@@ -22,7 +22,8 @@ UA = {"User-Agent": "job-search-digest/0.1 (+github.com/ankit2992/job-search-too
 
 # Resend: key comes from the environment ONLY — never hardcode (D5).
 RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
-RESEND_FROM = os.environ.get("RESEND_FROM", "onboarding@resend.dev")
+# `or` (not a default arg): a GitHub secret that isn't set arrives as "" not missing.
+RESEND_FROM = os.environ.get("RESEND_FROM") or "onboarding@resend.dev"
 
 # --------------------------------------------------------------------------
 # Fetch + normalize: each ATS -> common job shape
