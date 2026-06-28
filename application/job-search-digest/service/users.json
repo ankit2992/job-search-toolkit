@@ -1,0 +1,11 @@
+{
+  "_comment": "Phase 1 = dogfood for one inbox. Edit roles/locations/email to your own. target_leadership:true keeps Director/VP/Head-of titles.",
+  "users": [
+    {
+      "email": "you@example.com",
+      "roles": ["Product Manager", "Product Lead", "Group Product Manager"],
+      "locations": ["San Francisco", "New York", "Remote"],
+      "target_leadership": false
+    }
+  ]
+}

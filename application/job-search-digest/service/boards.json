@@ -1,0 +1,10 @@
+{
+  "_comment": "Curated company boards = the service's reach (see SERVICE_PLAN.md D1). Only verified slugs below; expand via build step 6 with a liveness check before adding.",
+  "boards": [
+    { "ats": "greenhouse", "slug": "stripe",     "verified": true },
+    { "ats": "greenhouse", "slug": "databricks", "verified": true },
+    { "ats": "ashby",      "slug": "ramp",       "verified": true },
+    { "ats": "ashby",      "slug": "linear",     "verified": true },
+    { "ats": "lever",      "slug": "ro",         "verified": true }
+  ]
+}
