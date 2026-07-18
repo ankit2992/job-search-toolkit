@@ -179,6 +179,22 @@ Each entry: the decision, the choice, why, and the tradeoff we accepted.
   move state to a database instead of the repo. Cron fires in UTC, so the local send time shifts
   an hour with daylight saving.
 
+### D12 — Pivot: visa-sponsorship digest for international students (H-1B / F-1·OPT)
+- **Choice:** Reposition the product from a general job digest to **"jobs at companies that
+  sponsor visas," for F-1/OPT and H-1B job seekers.** The engine is unchanged — sponsorship is
+  filters + tags on top; only the positioning, signup, and signals change. See `STRATEGY.md`.
+- **Why:** The general digest is a red ocean (OpenJobRadar/FirstPost/Scoutify). Sponsorship is a
+  sharp, underserved, high-pain niche with concentrated word-of-mouth channels — better for
+  differentiation, distribution, and the personal-brand goal. Curating boards = known sponsors
+  also answers the open "which boards" question.
+- **Honesty constraint (high stakes):** Sponsorship is a **company-level history, not a job-level
+  guarantee** — tag "has sponsored H-1B (years)", never "this job sponsors." Pair with a reliable
+  **job-level negative filter** (exclude JDs saying "no sponsorship / must be authorized / citizen
+  / clearance"). Same source-of-truth honesty principle as salary (D9).
+- **New work:** sponsor dataset (USCIS Employer Data Hub / DOL LCA) matched to company slugs; JD
+  negative-filter (needs description text — Ashby/Lever provide `descriptionPlain`, Greenhouse
+  needs `content=true`); reframed signup + sponsorship chip.
+
 ---
 
 ## Where the free tier ends (honesty about scale)
