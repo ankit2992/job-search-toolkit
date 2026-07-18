@@ -71,8 +71,12 @@
         Unsubscribe anytime with one click.</span></li>
     </ul>
 
-    <!-- Wire this to your form endpoint (e.g. Formspree): replace FORM_ID -->
-    <form id="wl" action="https://formspree.io/f/FORM_ID" method="POST">
+    <!-- FormSubmit endpoint (privacy alias — submissions go to the operator's inbox) -->
+    <form id="wl" action="https://formsubmit.co/aca9839edb7dbab976506b6360154a83" method="POST">
+      <input type="hidden" name="_subject" value="New Sponsor Digest waitlist signup">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
       <input type="email" name="email" required placeholder="you@university.edu" aria-label="Email address">
       <button type="submit">Join the waitlist</button>
     </form>
@@ -89,16 +93,15 @@
   <br><br>Built in the open — <a href="https://github.com/ankit2992/job-search-toolkit">source on GitHub</a>.</p>
 </div>
 <script>
-  // Progressive enhancement: keep the user on-page after submitting.
+  // Progressive enhancement: submit via AJAX so the user stays on-page.
   document.getElementById('wl').addEventListener('submit', async function(e){
-    var action = this.action;
-    if (action.indexOf('FORM_ID') !== -1) return;   // not wired yet -> default submit
     e.preventDefault();
+    var ajax = this.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
     try{
-      var res = await fetch(action, {method:'POST', body:new FormData(this),
-                                     headers:{'Accept':'application/json'}});
+      var res = await fetch(ajax, {method:'POST', body:new FormData(this),
+                                   headers:{'Accept':'application/json'}});
       if(res.ok){ this.style.display='none'; document.getElementById('ok').style.display='block'; }
-      else{ this.submit(); }
+      else{ this.submit(); }   // fall back to normal POST
     }catch(_){ this.submit(); }
   });
 </script>
