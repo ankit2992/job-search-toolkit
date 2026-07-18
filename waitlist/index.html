@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sponsor Digest — jobs at companies that sponsor visas, in your inbox</title>
+<meta name="description" content="A free daily email of new roles at companies with a verified H-1B sponsorship history. Built for F-1/OPT students and H-1B job seekers. Honest signals, no spam.">
+<style>
+  :root{
+    --accent:#4f46e5; --accent-soft:#eef2ff;
+    --bg:#f7f7fa; --card:#ffffff; --ink:#111827; --muted:#6b7280; --line:#ececf1;
+    --chip-bg:#ecfdf5; --chip-ink:#047857;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --accent:#818cf8; --accent-soft:#1e1b4b;
+      --bg:#0b0b10; --card:#15151d; --ink:#f3f4f6; --muted:#9ca3af; --line:#26262f;
+      --chip-bg:#064e3b; --chip-ink:#6ee7b7; }
+  }
+  *{box-sizing:border-box;margin:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+       background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:640px;margin:0 auto;padding:48px 20px 64px}
+  .brand{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700}
+  h1{font-size:clamp(28px,5vw,40px);line-height:1.15;margin:14px 0 14px;letter-spacing:-.02em}
+  .sub{color:var(--muted);font-size:17px;max-width:56ch}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 24px;margin-top:28px}
+  .card h2{font-size:15px;text-transform:uppercase;letter-spacing:1px;color:var(--muted);margin-bottom:14px}
+  ul.feat{list-style:none}
+  ul.feat li{padding:9px 0;border-bottom:1px solid var(--line);display:flex;gap:12px;align-items:baseline}
+  ul.feat li:last-child{border-bottom:0}
+  ul.feat b{color:var(--ink)}
+  .tick{color:var(--accent);font-weight:700}
+  .chip{display:inline-block;background:var(--chip-bg);color:var(--chip-ink);font-size:12px;
+        font-weight:700;padding:3px 10px;border-radius:6px}
+  form{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  input[type=email]{flex:1;min-width:220px;padding:13px 16px;font-size:16px;border-radius:10px;
+        border:1px solid var(--line);background:var(--bg);color:var(--ink);outline:none}
+  input[type=email]:focus{border-color:var(--accent)}
+  button{background:var(--accent);color:#fff;border:0;border-radius:10px;padding:13px 22px;
+        font-size:16px;font-weight:700;cursor:pointer}
+  button:hover{filter:brightness(1.08)}
+  .fine{margin-top:12px;font-size:13px;color:var(--muted)}
+  .disclaimer{margin-top:34px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);padding-top:20px}
+  .disclaimer b{color:var(--ink)}
+  a{color:var(--accent)}
+  .ok{display:none;margin-top:14px;padding:12px 16px;border-radius:10px;background:var(--chip-bg);
+      color:var(--chip-ink);font-weight:600}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="brand">Sponsor Digest</div>
+  <h1>New jobs at companies that actually sponsor — in your inbox.</h1>
+  <p class="sub">A free daily email for <b>F-1/OPT students and H-1B job seekers</b>: fresh roles
+  pulled straight from company career boards, tagged with each employer's real
+  H-1B sponsorship history from public USCIS/DOL records.</p>
+
+  <div class="card">
+    <h2>What you'll get</h2>
+    <ul class="feat">
+      <li><span class="tick">✓</span><span><b>Sponsorship history, honestly labelled</b> — e.g.
+        <span class="chip">Sponsored H-1B · 2022–25</span> — from official government filings.
+        History, never a guarantee.</span></li>
+      <li><span class="tick">✓</span><span><b>"No sponsorship" roles filtered out</b> — postings that say
+        “must be authorized without sponsorship” never reach you.</span></li>
+      <li><span class="tick">✓</span><span><b>First-party &amp; fresh</b> — sourced directly from company
+        ATS boards (Greenhouse, Ashby, Lever), not scraped aggregators.</span></li>
+      <li><span class="tick">✓</span><span><b>Base salary shown when published</b> —
+        <span class="chip">$150K – $190K</span> base only, never inflated with equity.</span></li>
+      <li><span class="tick">✓</span><span><b>No repeats, no spam</b> — you only ever see a role once.
+        Unsubscribe anytime with one click.</span></li>
+    </ul>
+
+    <!-- Wire this to your form endpoint (e.g. Formspree): replace FORM_ID -->
+    <form id="wl" action="https://formspree.io/f/FORM_ID" method="POST">
+      <input type="email" name="email" required placeholder="you@university.edu" aria-label="Email address">
+      <button type="submit">Join the waitlist</button>
+    </form>
+    <div class="ok" id="ok">You're on the list — thank you! You'll hear from us when it opens.</div>
+    <p class="fine">Free. Email only — no account, no resume upload. We only use your address to send
+    the digest, we never sell it, and you can unsubscribe or ask us to delete it anytime.</p>
+  </div>
+
+  <p class="disclaimer"><b>Honest fine print:</b> Sponsor Digest is informational only and is not
+  immigration or legal advice. An employer's past H-1B filings do <b>not</b> guarantee they will
+  sponsor any particular role or candidate — always verify directly with the employer, and consult
+  a licensed immigration attorney or your DSO for advice about your situation. Sponsorship data is
+  derived from public USCIS / Department of Labor disclosure records.
+  <br><br>Built in the open — <a href="https://github.com/ankit2992/job-search-toolkit">source on GitHub</a>.</p>
+</div>
+<script>
+  // Progressive enhancement: keep the user on-page after submitting.
+  document.getElementById('wl').addEventListener('submit', async function(e){
+    var action = this.action;
+    if (action.indexOf('FORM_ID') !== -1) return;   // not wired yet -> default submit
+    e.preventDefault();
+    try{
+      var res = await fetch(action, {method:'POST', body:new FormData(this),
+                                     headers:{'Accept':'application/json'}});
+      if(res.ok){ this.style.display='none'; document.getElementById('ok').style.display='block'; }
+      else{ this.submit(); }
+    }catch(_){ this.submit(); }
+  });
+</script>
+</body>
+</html>
