@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-run.py — the eval runner for the interview cheat sheet generator.
+run.py — the eval runner for the interview prep brief generator.
 
-It takes one or more generated cheat-sheet HTML files, runs every dimension
+It takes one or more generated prep-brief HTML files, runs every dimension
 defined in rubric.md against each one, and prints a scored report ending in a
 single headline number (0-100) plus a pass/fail verdict.
 
@@ -10,7 +10,7 @@ Design notes
 ------------
 - The SKILL.md is the spec ("what good looks like"). rubric.md turns each rule
   into a gradeable check. This file is the thing that actually runs them, so a
-  cheat sheet can be measured instead of eyeballed.
+  prep brief can be measured instead of eyeballed.
 - Code-checked dimensions are pure stdlib (via parse.py) and always run.
 - LLM-judged dimensions call the Anthropic API and only run when
   ANTHROPIC_API_KEY is set; otherwise they're skipped and excluded from the
@@ -231,7 +231,7 @@ def _call_anthropic(prompt):
 
 def _judge(criterion_desc, scripts_text):
     prompt = (
-        "You are grading one dimension of an interview cheat sheet against a "
+        "You are grading one dimension of an interview prep brief against a "
         "rubric. Read the candidate's scripts, then score the dimension below.\n\n"
         f"DIMENSION:\n{criterion_desc}\n\n"
         "Respond with ONLY a JSON object, no markdown, no preamble:\n"
@@ -324,8 +324,8 @@ def print_report(path, doc, dims, headline, hard_failed, passed):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Eval runner for interview cheat sheets.")
-    ap.add_argument("files", nargs="+", help="generated cheat-sheet HTML file(s)")
+    ap = argparse.ArgumentParser(description="Eval runner for interview prep briefs.")
+    ap.add_argument("files", nargs="+", help="generated prep-brief HTML file(s)")
     ap.add_argument("--no-judge", action="store_true", help="run code checks only")
     ap.add_argument("--json", action="store_true", help="emit JSON instead of a report")
     args = ap.parse_args()

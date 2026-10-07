@@ -2,12 +2,17 @@
 
 ## [Unreleased]
 
+- Renamed the interview tool from "Interview Cheat Sheet" to **Interview Prep Brief**
+  (`interview/interview-prep-brief/`) to better describe what it produces: a
+  per-round prep brief built from a personal story bank, not answers to read
+  aloud. Template renamed to `prep-brief-template.html`. Eval scores unchanged.
+
 ## 2026-06-17 — Eval harnesses
 
 Added automated eval suites across all three tools. Each eval is matched to
 how that specific tool fails, rather than using a one-size-fits-all approach:
 
-- **Interview Cheat Sheet** — LLM-judged dimensions (spoken tone, honesty
+- **Interview Prep Brief** — LLM-judged dimensions (spoken tone, honesty
   calibration, attribution integrity) plus code checks (em-dash gate,
   anchor-word discipline, pacing-cue budget, talk-time targets, nav integrity).
   Runs without an API key via `--no-judge`; exits non-zero for CI.
@@ -36,7 +41,7 @@ Launched three tools covering the full job search lifecycle:
   graceful fallback when a source is unavailable, privacy-scoped to one
   destination address.
 
-- **Interview Cheat Sheet Generator** (`interview/`) — generates a
+- **Interview Prep Brief Generator** (`interview/`) — generates a
   single-file HTML prep sheet for a specific interview round: full
   first-person scripts, anchor-word memory aids, pacing cues, and
   honestly-calibrated gap answers. Used in a live hiring-manager loop

@@ -19,7 +19,7 @@ These tools were built and used during an active 4-month job search
 (250+ applications across fintech, insurtech, and big tech):
 
 - **Job Search Digest** ran daily during the sourcing phase
-- **Interview Cheat Sheet** was used to prep live interview loops,
+- **Interview Prep Brief** was used to prep live interview loops,
   including the one that led to the signed offer
 - **Comp Comparator** was run on the final offer — it flagged a verbal
   bonus commitment as unconfirmed upside, which changed how I evaluated
@@ -38,9 +38,9 @@ when results are sparse, privacy-scoped to a single destination email.
 
 <img width="1123" height="610" alt="image" src="https://github.com/user-attachments/assets/c8030205-77f9-4735-8b41-14e38ea72243" />
 
-### [Interview — Interview Cheat Sheet Generator](./interview/interview-cheat-sheet)
+### [Interview — Interview Prep Brief Generator](./interview/interview-prep-brief)
 
-Generates a single-file HTML "cheat sheet" for a specific interview round —
+Generates a single-file HTML "prep brief" for a specific interview round —
 full first-person scripts with delivery pacing cues, anchor-word memory aids,
 and honestly-calibrated answers for known gaps.
 
@@ -51,7 +51,7 @@ avoids overclaiming.
 
 <img width="1897" height="898" alt="image" src="https://github.com/user-attachments/assets/9c9a184e-e079-46de-baaf-ca8fcb66e43a" />
 
-**[View live example →](https://ankit2992.github.io/job-search-toolkit/interview/interview-cheat-sheet/examples/example-prep-sheet.html)**
+**[View live example →](https://ankit2992.github.io/job-search-toolkit/interview/interview-prep-brief/examples/example-prep-sheet.html)**
 
 ### [Negotiation — Comp Comparator](./negotiation/comp-comparator)
 
@@ -84,12 +84,12 @@ different ways, because they fail in different ways:
 
 | Tool | What kind of problem | How it's graded |
 |---|---|---|
-| Interview Cheat Sheet | Generation quality | LLM-judged (tone, honesty, attribution) + code format checks |
+| Interview Prep Brief | Generation quality | LLM-judged (tone, honesty, attribution) + code format checks |
 | Job Search Digest | Retrieval & filtering | Objective code checks (precision, dedup, seniority/location, URLs) |
 | Comp Comparator | Structured reasoning & math | Arithmetic verification + risk-flag recall + a no-advice guardrail |
 
 A search tool is a *precision* problem with checkable right answers; a comp
-tool is an *arithmetic-correctness* problem; only the cheat sheet is a
+tool is an *arithmetic-correctness* problem; only the prep brief is a
 subjective *quality* problem that genuinely needs an LLM judge. Matching the
 eval method to the failure mode is the point.
 
@@ -97,7 +97,7 @@ Each `eval/` folder is self-contained and runnable:
 
 ```bash
 # code-only checks, no API key required
-python3 interview/interview-cheat-sheet/eval/run.py --no-judge interview/interview-cheat-sheet/examples/example-prep-sheet.html
+python3 interview/interview-prep-brief/eval/run.py --no-judge interview/interview-prep-brief/examples/example-prep-sheet.html
 python3 negotiation/comp-comparator/eval/run.py --no-judge negotiation/comp-comparator/examples/example-comparison.md
 python3 application/job-search-digest/eval/run.py --no-judge application/job-search-digest/examples/example-digest.json
 
@@ -126,7 +126,7 @@ Ideas under consideration, in priority order:
 - **Follow-up tracker** — application status and outreach cadence
   management; the biggest remaining manual step in the workflow
 - **Interviewer research module** — pre-round briefs on interviewer
-  backgrounds and likely question areas, feeding into the cheat sheet
+  backgrounds and likely question areas, feeding into the prep brief
 - **Post-offer checklist** — first-90-days planning, benefits election
   deadlines, and title/level documentation
 
@@ -146,7 +146,7 @@ job-search-toolkit/
 │       └── examples/
 │           └── example-digest.json
 ├── interview/
-│   └── interview-cheat-sheet/
+│   └── interview-prep-brief/
 │       ├── SKILL.md
 │       ├── README.md
 │       ├── eval/
@@ -155,7 +155,7 @@ job-search-toolkit/
 │       │   ├── run.py
 │       │   └── README.md
 │       ├── templates/
-│       │   └── cheat-sheet-template.html
+│       │   └── prep-brief-template.html
 │       └── examples/
 │           └── example-prep-sheet.html
 └── negotiation/

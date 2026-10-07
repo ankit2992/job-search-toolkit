@@ -1,9 +1,9 @@
 """
 parse.py — extract the structures the rubric cares about from a generated
-cheat sheet HTML file. Stdlib only (re + html), so the eval runs anywhere
+prep brief HTML file. Stdlib only (re + html), so the eval runs anywhere
 without installing anything.
 
-The cheat sheet markup is well-defined by the template, so we parse against
+The prep brief markup is well-defined by the template, so we parse against
 its known class names rather than doing general HTML parsing.
 """
 

@@ -3,7 +3,7 @@
 This folder measures whether a generated comp comparison is *accurate and
 conservative about money* and stays out of giving accept/reject advice.
 
-Unlike the cheat-sheet eval (which leans on LLM judges for subjective writing
+Unlike the prep-brief eval (which leans on LLM judges for subjective writing
 quality), this tool is graded mostly by **objective code checks**: does the
 arithmetic add up, is a discretionary bonus correctly kept out of the
 guaranteed total, did the output flag the risky clauses that were actually in

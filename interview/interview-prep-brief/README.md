@@ -1,8 +1,8 @@
-# Interview Cheat Sheet Generator
+# Interview Prep Brief Generator
 
 **Stage:** Interview
 
-A Claude skill that generates a single-file HTML "cheat sheet" for one specific
+A Claude skill that generates a single-file HTML "prep brief" for one specific
 interview round — built for glancing at during the call, not for studying
 beforehand.
 
@@ -53,11 +53,11 @@ navigable HTML page with:
 
 ## Reusable template
 
-`templates/cheat-sheet-template.html` contains the full design system (CSS
+`templates/prep-brief-template.html` contains the full design system (CSS
 variables, sidebar nav, section/component classes) extracted as a generic
 template with placeholder content. `examples/example-prep-sheet.html` is a
 fully worked example using a fictional company and role, showing what a
-completed cheat sheet looks like.
+completed prep brief looks like.
 
 ## What I specified vs. what was generated
 

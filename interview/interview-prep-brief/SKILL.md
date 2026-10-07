@@ -1,20 +1,20 @@
 ---
-name: interview-cheat-sheet
+name: interview-prep-brief
 description: >
-  Generates a personalized, single-file HTML interview cheat sheet for a specific
+  Generates a personalized, single-file HTML interview prep brief for a specific
   interview round. Takes a job description, the candidate's background and story
   bank, and round-specific context (interviewer, format, focus areas), and produces
   a navigable HTML page with a fixed sidebar, full first-person scripts for likely
   questions, inline delivery pacing cues, anchor-word memory aids, probe/follow-up
   sections, and a closing "questions to ask" list. Use this when the user wants a
-  prep sheet, cheat sheet, or talking-points page for an upcoming interview, ideally
+  prep sheet, prep brief, or talking-points page for an upcoming interview, ideally
   after a job-description-based prep guide has already identified the likely
   question categories.
 ---
 
-# Interview Cheat Sheet Generator
+# Interview Prep Brief Generator
 
-Produces a single-file HTML "cheat sheet" for one specific interview round —
+Produces a single-file HTML "prep brief" for one specific interview round —
 designed to be read on a second monitor or phone during the call, not as a
 study document. Optimized for glanceability and delivery, not analysis.
 
@@ -111,7 +111,7 @@ a full script:
 
 Never write a script that implies expertise the candidate doesn't have. The
 goal is "honest framing wins more trust than overclaiming," stated directly
-in the cheat sheet itself as a coaching note if useful.
+in the prep brief itself as a coaching note if useful.
 
 ## Accuracy rules
 
@@ -124,7 +124,7 @@ in the cheat sheet itself as a coaching note if useful.
 
 ## Building the HTML
 
-Use `templates/cheat-sheet-template.html` as the starting point. It defines
+Use `templates/prep-brief-template.html` as the starting point. It defines
 the full design system: CSS variables, sidebar navigation, section/component
 classes (context cards, anchor bars, story "beats," Q&A cards, probe
 sections, cue callouts, the closing "ask" list), and the scroll-spy sidebar
