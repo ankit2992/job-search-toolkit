@@ -2,16 +2,17 @@
 
 **Stage:** Interview
 
-A Claude skill that generates a single-file HTML "prep brief" for one specific
-interview round — built for glancing at during the call, not for studying
-beforehand.
+A Claude skill that generates a single-file HTML prep brief for one specific
+interview round: which of your stories fits which likely question, and how to
+deliver it. Built for rehearsing beforehand and a quick review before the call.
 
 ## The problem
 
 Generic interview prep ("research the company, practice your stories") doesn't
-help in the moment. What helps is having the actual words you'll say, with
-delivery cues, organized so you can find the right section in seconds if the
-conversation goes somewhere unexpected.
+tell you which of your experiences fits *this* round. What helps is mapping the
+likely questions to your own story bank, rehearsing each answer out loud with
+delivery cues, and calibrating honestly where you have a gap, so you walk in
+prepared rather than improvising.
 
 ## What it does
 
@@ -33,8 +34,8 @@ navigable HTML page with:
 ## Design decisions
 
 - **Anchor-word bars, not full outlines.** A story is told in your own words
-  in the moment; the anchor bar (`WrongAssumption → Escalated → Delivered`)
-  is just a recall sequence if you freeze mid-story. It's a memory aid, not a
+  when you deliver it; the anchor bar (`WrongAssumption → Escalated → Delivered`)
+  is the recall sequence you rehearse, so the structure sticks. It's a memory aid, not a
   script to read.
 - **Inline pacing cues, used sparingly.** `[PAUSE]` and `[SLOW]` mark the 1-2
   moments per answer that actually matter, like landing a number or a payoff

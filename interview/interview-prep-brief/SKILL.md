@@ -15,8 +15,8 @@ description: >
 # Interview Prep Brief Generator
 
 Produces a single-file HTML "prep brief" for one specific interview round —
-designed to be read on a second monitor or phone during the call, not as a
-study document. Optimized for glanceability and delivery, not analysis.
+designed for rehearsing answers out loud beforehand and a quick review before
+the call. Optimized for delivery and recall, not long analysis.
 
 ## Inputs
 
