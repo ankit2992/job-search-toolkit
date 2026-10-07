@@ -1,12 +1,12 @@
-# Interview Cheat Sheet — Eval Rubric
+# Interview Prep Brief — Eval Rubric
 
-This is the quality spec for the cheat sheet generator, expressed as gradeable
+This is the quality spec for the prep brief generator, expressed as gradeable
 criteria. Every rule here is lifted directly from `../SKILL.md`. The skill says
 what "good" looks like in prose; this rubric turns each rule into a check that
 produces a number, so quality can be measured instead of eyeballed.
 
 The principle: **the SKILL.md is the PRD. This rubric is how we prove the output
-meets it.** A generated cheat sheet either clears the bar or it doesn't, and we
+meets it.** A generated prep brief either clears the bar or it doesn't, and we
 can see exactly where it falls short.
 
 Each dimension has a **type**:

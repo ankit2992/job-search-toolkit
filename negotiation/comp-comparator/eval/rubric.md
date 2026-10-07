@@ -1,7 +1,7 @@
 # Comp Comparator — Eval Rubric
 
 The comp comparator's job is to be *accurate and conservative* about money, and
-to never cross into giving accept/reject advice. So unlike the cheat sheet
+to never cross into giving accept/reject advice. So unlike the prep brief
 (which is graded mostly on subjective writing quality), this tool is graded
 mostly on **arithmetic correctness and rule-adherence** — things a machine can
 check exactly. The few judged dimensions cover recall and tone.

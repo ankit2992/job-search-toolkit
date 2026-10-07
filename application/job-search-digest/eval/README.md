@@ -4,7 +4,7 @@ This folder measures whether a generated digest returned *the right jobs*:
 only roles matching the request, the right seniority, the right locations, no
 duplicates, valid links, within the cap.
 
-This tool sits at the opposite end of the spectrum from the cheat-sheet eval.
+This tool sits at the opposite end of the spectrum from the prep-brief eval.
 A digest is a retrieval-and-filtering problem, so its quality is **objective**
 — precision, dedup, and rule-adherence are all code checks. There's almost no
 subjective "taste" to grade. The eval therefore runs fully without an API key;

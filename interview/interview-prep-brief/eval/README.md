@@ -1,6 +1,6 @@
-# Eval — Interview Cheat Sheet
+# Eval — Interview Prep Brief
 
-This folder turns the cheat-sheet generator's quality bar into something
+This folder turns the prep-brief generator's quality bar into something
 measurable. The generator's `../SKILL.md` describes what "good" looks like in
 prose. An eval is how you prove a generated sheet actually meets it, instead of
 eyeballing one and calling it fine.
@@ -53,7 +53,7 @@ A run passes at **>= 85 with no hard failures.**
 
 ## What the fixture shows
 
-`example-prep-sheet.html` is a real generated cheat sheet — and it intentionally
+`example-prep-sheet.html` is a real generated prep brief — and it intentionally
 **fails** the eval (74.5, hard failure on em dashes). That's expected and the
 point: the eval caught spec violations in the reference output itself. Specifically:
 

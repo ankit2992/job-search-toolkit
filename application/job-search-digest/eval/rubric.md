@@ -5,7 +5,7 @@ about precision and rule-adherence: did it return only roles that match the
 request, drop the wrong seniority, drop the wrong locations, remove duplicates,
 and stay within the cap. Those are objective, so this eval is **mostly code,
 with essentially no "taste" component** — the opposite end of the spectrum from
-the cheat-sheet eval. One optional LLM dimension exists only to double-check
+the prep-brief eval. One optional LLM dimension exists only to double-check
 fuzzy title matches; the tool can be meaningfully graded without it.
 
 The eval consumes a **run record**: a small JSON file containing the criteria
